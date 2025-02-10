@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
-using static DialogueEditor;
 
 public class DialogueManager : SingletonBase<DialogueManager>
 {
