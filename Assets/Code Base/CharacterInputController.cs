@@ -36,8 +36,17 @@ public class CharacterInputController : SingletonBase<CharacterInputController>
 
     private void Update()
     {
+        InputControl();
         CameraUpdate();
         MainRay();
+    }
+
+    private void InputControl()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DialogueLog.Instance.SwitchLog();
+        }
     }
 
     private const string Horizontal = "Horizontal";
