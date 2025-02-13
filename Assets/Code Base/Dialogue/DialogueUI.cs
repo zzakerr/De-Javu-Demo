@@ -1,20 +1,25 @@
+using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 
 public class DialogueUI : SingletonBase<DialogueUI>
 {
-    [SerializeField] private TMP_Text npcName;
+    
+    [Space]
+    [SerializeField] private TMP_Text npcNameText;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Image portraitImage;
-    
-    [SerializeField] private GameObject answerButtonPrefab;
+    [Space]
     [SerializeField] private Transform answerButtonsContainer;
-    [SerializeField] private GameObject dialogueTextContainer;
-    [SerializeField] private GameObject dialogueNameContainer;
-
+    [SerializeField] private Transform dialogueTextContainer;
+    [SerializeField] private Transform dialogueNameContainer;
+    [SerializeField] private Transform buttonLog;
+    [Space]
+    [SerializeField] private GameObject answerButtonPrefab;
+    [Space]
     [SerializeField] private EmotionObj emotionsObj;
     
     private void Awake()
@@ -41,7 +46,7 @@ public class DialogueUI : SingletonBase<DialogueUI>
             default: dialogueTextContainer.GetComponent<Image>().color = Color.white;
                 break;
         }
-        npcName.text = npc.ToString();
+        npcNameText.text = npc.ToString();
         dialogueText.text = npcText;
         var portrait = FindEmotions(npc,emotion);
         portraitImage.sprite = portrait;
@@ -68,6 +73,7 @@ public class DialogueUI : SingletonBase<DialogueUI>
     {
         dialogueTextContainer.gameObject.SetActive(true);
         portraitImage.gameObject.SetActive(true);
+        buttonLog.gameObject.SetActive(true);
         HideAnswers();
     }
 
@@ -110,6 +116,7 @@ public class DialogueUI : SingletonBase<DialogueUI>
     
     public void EndDialogue()
     {
+        buttonLog.gameObject.SetActive(false);
         ClearAnswers();
         HideDialogue();
     }

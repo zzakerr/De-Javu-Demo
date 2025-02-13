@@ -20,25 +20,11 @@ public class DialogueLog : SingletonBase<DialogueLog>
     {
         _phraseList = new List<PhraseUI>();
         ClearLog();
-        HideLog();
     }
 
     public void SwitchLog()
     {
         dialogueLogBox.SetActive(!dialogueLogBox.activeInHierarchy);
-        OnePersonCamera.Instance.CameraLock(dialogueLogBox.activeInHierarchy);
-    }
-    
-    public void ShowLog()
-    {
-        dialogueLogBox.SetActive(true);
-        OnePersonCamera.Instance.CameraLock(dialogueLogBox.activeInHierarchy);
-    }
-
-    public void HideLog()
-    {
-        dialogueLogBox.SetActive(false);
-        OnePersonCamera.Instance.CameraLock(dialogueLogBox.activeInHierarchy);
     }
     
     public void AddPhrase(string phrase,Sprite portrait)

@@ -129,7 +129,7 @@ public class OnePersonCamera : SingletonBase<OnePersonCamera>
         else
         {
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

@@ -55,7 +55,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
       _currenNpcTextIndex = 0;
       _maxNpcText = _currentNode.npcText.Length;
    }
-   
+
    private IEnumerator DialogueWithoutCharacter()
    {
       NextNode(_currentNodeIndex);
@@ -74,7 +74,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
       }
       EndDialogue();
    }
-   
+
    private IEnumerator DialogueWithCharacter()
    {
       while (true)
@@ -89,7 +89,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
             _dialogueUI.SetProperties(npcName,npcText,emotion);
             _currenNpcTextIndex++;
             yield return new WaitForSeconds(0.2f);
-            yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
+            yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.Space));
          }
       
          if (_currentNode.playerAnswer.Length > 0)
@@ -114,7 +114,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
    
    private void DisableAllOtherHud()
    {
-      DialogueLog.Instance.HideLog();
+      
    }
    
    public void EndDialogue()

@@ -30,6 +30,7 @@ public class AnswerButton : MonoBehaviour
     private void EndDialogue()
     {
         DialogueManager.Instance.EndDialogue();
+        DialogueLog.Instance.AddPhrase(_text,_sprite);
         DialogueUI.Instance.ClearAnswers();
     }
 
