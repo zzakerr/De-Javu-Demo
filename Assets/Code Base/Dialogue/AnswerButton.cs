@@ -4,41 +4,40 @@ using UnityEngine.UI;
 
 public class AnswerButton : MonoBehaviour
 {
+    [SerializeField] private Sprite wosActiveSprite;
     private Button _button;
-    private int _nextNode;
-    private int _value;
-    private string _text;
-    private Sprite _sprite;
+    private PlayerAnswer _playerAnswer;
 
-    public void SetProperties(string question,int nextNode, int value,bool isExit,Sprite portrait)
+    public void Setup(PlayerAnswer answer)
     {
-        _value = value;
-        _nextNode = nextNode;
-        _text = question;
-        _sprite = portrait;
-        
+        _playerAnswer = answer;
         _button = GetComponent<Button>();
-        _button.GetComponentInChildren<TMP_Text>().text = _text;
-        if (isExit)
+        _button.GetComponentInChildren<TMP_Text>().text = _playerAnswer.text;
+        if (_playerAnswer.wosActive)
+        {
+            _button.image.sprite = wosActiveSprite;
+        }
+        if (answer.isExit)
         {
             _button.onClick.AddListener(EndDialogue);
             return;
         }
         _button.onClick.AddListener(SendValue);
     }
-
+    
     private void EndDialogue()
     {
         DialogueManager.Instance.EndDialogue();
-        DialogueLog.Instance.AddPhrase(_text,_sprite);
+        DialogueLog.Instance.AddPhrase(_playerAnswer.text, Characters.Hero);
         DialogueUI.Instance.ClearAnswers();
     }
 
     private void SendValue()
     {
-        DialogueManager.Instance.NextNode(_nextNode);
-        ValueManager.Instance.AddValue(_value);
-        DialogueLog.Instance.AddPhrase(_text,_sprite);
-        DialogueUI.Instance.ClearAnswers();
+        _playerAnswer.wosActive = true;
+        DialogueManager.Instance.NextNode(_playerAnswer.toNode);
+        ValueManager.Instance.AddValue(_playerAnswer.value);
+        DialogueLog.Instance.AddPhrase(_playerAnswer.text,Characters.Hero);
+        DialogueUI.Instance.ClearAnswers(); 
     }
 }

@@ -3,7 +3,6 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public  class DialogueEditor : EditorWindow
@@ -157,6 +156,7 @@ public  class DialogueEditor : EditorWindow
 		editButton.name = "Edit";
 		editButton.text = "Edit";
 		editButton.style.width = 100;
+		editButton.style.height = 20;
 		editButton.clicked += Editor;
 		root.Add(editButton);
 		
@@ -164,6 +164,7 @@ public  class DialogueEditor : EditorWindow
 		_saveButton.name = "Save";
 		_saveButton.text = "Save";
 		_saveButton.style.width = 100;
+		_saveButton.style.height = 20;
 		_saveButton.clicked += SaveDialogue;
 		_saveButton.visible = false;
 		root.Add(_saveButton);
@@ -185,6 +186,7 @@ public  class DialogueEditor : EditorWindow
 		_editBox.Add(new Label());
 		_editBox.Add(_scrollView);
 	}
+	
 	private void Editor()
 	{
 		_currentDialogue = _editObject.value as DialogueObj;
@@ -237,31 +239,48 @@ public class DialogueNode
 public class PlayerAnswer
 {
 	[TextArea] public string text;
+	[Space]
 	public int toNode;
+	[Space]
 	public int value;
-	public bool exit;
+	public bool isExit;
+	
+	public bool wosActive;
 }
 
 [Serializable]
 public class NpcText
 {
 	[TextArea] public string text;
-	public NpcEmotion emotion = NpcEmotion.Neutral;
-	public Npc name = Npc.Hero;
+	
+	[Space]
+	public CharactersEmotion emotion = CharactersEmotion.Neutral;
+	public Characters name = Characters.Hero;
+	
+	[Space]
+	public EffectType effect = EffectType.Normal;
 }
 
-public enum Npc
+public enum Characters
 {
 	Hero = 0,
 	April = 1,
 	Patient = 2
 }
 
-public enum NpcEmotion
+public enum CharactersEmotion
 {
 	Neutral = 0,
 	Happy = 1,
 	Angry = 2,
 	Sad = 3,
 	Fear = 4
+}
+
+public enum EffectType
+{
+	Normal = 0,
+	GlitchSmall = 1,
+	GlitchMedium = 2,
+	GlitchHard = 3,
 }

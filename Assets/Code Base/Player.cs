@@ -44,6 +44,7 @@ public class Player : SingletonBase<Player>
     {
         OnePersonCamera.Instance.SetTarget(cameraPos,TypeMoveCamera.WithRotation,false,true);
     }
+    
     private const float Acceleration = 50f;
     private const float AirMoveLimit = 0.400f;
     

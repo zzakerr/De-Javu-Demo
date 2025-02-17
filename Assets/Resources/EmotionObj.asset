@@ -13,41 +13,42 @@ MonoBehaviour:
   m_Name: EmotionObj
   m_EditorClassIdentifier: 
   npc:
-  - npc: 0
+  - characters: 0
     sprites:
-    - npcEmotion: 0
+    - charactersEmotion: 0
       sprites:
       - {fileID: 21300000, guid: 0238bca7d8a2eda4abe2475c359ad832, type: 3}
-    - npcEmotion: 1
+    - charactersEmotion: 1
       sprites: []
-    - npcEmotion: 2
+    - charactersEmotion: 2
       sprites: []
-    - npcEmotion: 3
+    - charactersEmotion: 3
       sprites: []
-    - npcEmotion: 4
+    - charactersEmotion: 4
       sprites: []
-  - npc: 1
+  - characters: 1
     sprites:
-    - npcEmotion: 0
+    - charactersEmotion: 0
       sprites:
       - {fileID: 21300000, guid: fc2460926bd89d148920ef4d8b350ccb, type: 3}
-    - npcEmotion: 1
+    - charactersEmotion: 1
       sprites: []
-    - npcEmotion: 2
+    - charactersEmotion: 2
       sprites: []
-    - npcEmotion: 3
+    - charactersEmotion: 3
       sprites: []
-    - npcEmotion: 4
+    - charactersEmotion: 4
       sprites: []
-  - npc: 2
+  - characters: 2
     sprites:
-    - npcEmotion: 0
+    - charactersEmotion: 0
+      sprites:
+      - {fileID: 21300000, guid: 0238bca7d8a2eda4abe2475c359ad832, type: 3}
+    - charactersEmotion: 1
       sprites: []
-    - npcEmotion: 1
+    - charactersEmotion: 2
       sprites: []
-    - npcEmotion: 2
+    - charactersEmotion: 3
       sprites: []
-    - npcEmotion: 3
-      sprites: []
-    - npcEmotion: 4
+    - charactersEmotion: 4
       sprites: []

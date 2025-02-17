@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ee9acfffc3ff4bb332206a176835a, type: 3}
+  m_Name: Patient
+  m_EditorClassIdentifier: 
+  dialogue:
+  - npcText:
+    - text: 3123
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer: []
+  - npcText: []
+    playerAnswer:
+    - text: 1
+      toNode: 2
+      value: 0
+      isExit: 0
+      wosActive: 0
+    - text: 2
+      toNode: 3
+      value: 0
+      isExit: 0
+      wosActive: 0
+    - text: 3
+      toNode: 4
+      value: 0
+      isExit: 0
+      wosActive: 0
+    - text: 4
+      toNode: 5
+      value: 0
+      isExit: 0
+      wosActive: 0
+    - text: 5
+      toNode: 6
+      value: 0
+      isExit: 0
+      wosActive: 0
+  - npcText:
+    - text: ffff
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer:
+    - text: 
+      toNode: 1
+      value: 0
+      isExit: 0
+      wosActive: 0
+  - npcText:
+    - text: sdgsadg
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer:
+    - text: 
+      toNode: 1
+      value: 0
+      isExit: 0
+      wosActive: 0
+  - npcText:
+    - text: sdfhgsdfg
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer:
+    - text: 
+      toNode: 1
+      value: 0
+      isExit: 0
+      wosActive: 0
+  - npcText:
+    - text: asdgasdfg
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer:
+    - text: 
+      toNode: 1
+      value: 0
+      isExit: 0
+      wosActive: 0
+  - npcText:
+    - text: fasdffff
+      emotion: 0
+      name: 2
+      effect: 0
+    playerAnswer:
+    - text: 
+      toNode: 1
+      value: 0
+      isExit: 1
+      wosActive: 0

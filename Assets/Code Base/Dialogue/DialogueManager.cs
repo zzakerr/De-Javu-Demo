@@ -11,8 +11,10 @@ public enum DialogueType
 public class DialogueManager : SingletonBase<DialogueManager>
 {
    [SerializeField] private float maxTimeText = 6f;
-   private DialogueNode[] _nodes;
    private DialogueUI _dialogueUI;
+   private EffectControl _effectControl;
+   
+   private DialogueNode[] _nodes;
    private DialogueNode _currentNode;
    private int _currentNodeIndex;
    private int _currenNpcTextIndex;
@@ -26,13 +28,13 @@ public class DialogueManager : SingletonBase<DialogueManager>
    private void Start()
    {
       _dialogueUI = DialogueUI.Instance;
+      _effectControl = EffectControl.Instance;
    }
    
    public void StartDialogue(DialogueObj dialogue,DialogueType dialogueType)
    {
       if (IsDialogue) return;
-
-      DisableAllOtherHud();
+      
       _nodes = dialogue.Dialogue;
       _currentNodeIndex = 0;
       Debug.Log("Dialogue Begin");
@@ -65,7 +67,9 @@ public class DialogueManager : SingletonBase<DialogueManager>
          var npcText = currentNpcNode.text;
          var emotion = currentNpcNode.emotion;
          var npcName = currentNpcNode.name;
-         _dialogueUI.SetProperties(npcName,npcText,emotion);
+         var effect = currentNpcNode.effect;
+         _dialogueUI.SetTextProperties(npcName,emotion,npcText);
+         _effectControl.StartEffect(effect);
          _currenNpcTextIndex++;
          var waitTime = npcText.Length*0.3f;
          if (waitTime > maxTimeText) waitTime = maxTimeText;
@@ -86,7 +90,9 @@ public class DialogueManager : SingletonBase<DialogueManager>
             var npcText = currentNpcNode.text;
             var emotion = currentNpcNode.emotion;
             var npcName = currentNpcNode.name;
-            _dialogueUI.SetProperties(npcName,npcText,emotion);
+            var effect = currentNpcNode.effect;
+            _dialogueUI.SetTextProperties(npcName,emotion,npcText);
+            _effectControl.StartEffect(effect);
             _currenNpcTextIndex++;
             yield return new WaitForSeconds(0.2f);
             yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.Space));
@@ -94,7 +100,7 @@ public class DialogueManager : SingletonBase<DialogueManager>
       
          if (_currentNode.playerAnswer.Length > 0)
          {
-            if (_currentNode.playerAnswer[0].exit) break; 
+            if (_currentNode.playerAnswer[0].isExit) break; 
             if (_currentNode.playerAnswer[0].text == "")
             {
                _currentNodeIndex = _currentNode.playerAnswer[0].toNode;
@@ -106,15 +112,16 @@ public class DialogueManager : SingletonBase<DialogueManager>
             yield return new WaitUntil(()=> currentNode != _currentNodeIndex);
             continue;
          }
+
+         if (_currentNodeIndex + 1 < _nodes.Length)
+         {
+            _currentNodeIndex++;
+            continue;
+         }
          break;
       }
       Player.Instance.ReturnCamera();
       EndDialogue();
-   }
-   
-   private void DisableAllOtherHud()
-   {
-      
    }
    
    public void EndDialogue()

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Russian (Russia) (ru-RU)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Russian (Russia) (ru-RU)
+  m_GUID: 6227e18a1f9e4144fa7a09e68295a0d5
+  m_SerializeEntries:
+  - m_GUID: 3fe18cc8c7f30334a96a6b5176c40a07
+    m_Address: New String Table_ru-RU
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+    FlaggedDuringContentUpdateRestriction: 0
+    <IsFolder>k__BackingField: 0
+    <BundleFileId>k__BackingField: 
+    <IsSubAsset>k__BackingField: 0
+    m_CheckedIsScene: 0
+    m_IsScene: 0
+    m_CurrentHash:
+      'bytes[0]': 73
+      'bytes[1]': 13
+      'bytes[2]': 31
+      'bytes[3]': 166
+      'bytes[4]': 156
+      'bytes[5]': 90
+      'bytes[6]': 177
+      'bytes[7]': 179
+      'bytes[8]': 140
+      'bytes[9]': 134
+      'bytes[10]': 33
+      'bytes[11]': 9
+      'bytes[12]': 215
+      'bytes[13]': 61
+      'bytes[14]': 106
+      'bytes[15]': 247
+    m_cachedAssetPath: Assets/Resources/New String Table_ru-RU.asset
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 03e5d1a4015d5894fbaab0cb76d1ddab, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e22267ca602b71b42bcf4836a2d9e7e6, type: 2}
+    - {fileID: 11400000, guid: bfae89dcfb9dcc14cb185fa043de27e6, type: 2}
+  m_FolderEntryCache: []
+  <FlaggedDuringContentUpdateRestriction>k__BackingField: 0
+  m_CurrentHash:
+    'bytes[0]': 138
+    'bytes[1]': 232
+    'bytes[2]': 188
+    'bytes[3]': 176
+    'bytes[4]': 215
+    'bytes[5]': 39
+    'bytes[6]': 79
+    'bytes[7]': 90
+    'bytes[8]': 215
+    'bytes[9]': 220
+    'bytes[10]': 202
+    'bytes[11]': 15
+    'bytes[12]': 114
+    'bytes[13]': 140
+    'bytes[14]': 10
+    'bytes[15]': 249
